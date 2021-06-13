@@ -4,6 +4,32 @@ import { nanoid } from 'nanoid';
 const router = express.Router();
 const idLength = 8;
 
+
+/**
+  * @swagger
+  * tags:
+  *   name: Books
+  *   description: The books managing API
+  */
+
+/**
+ * @swagger
+ * /books:
+ *   get:
+ *     summary: Returns the list of all the books
+ *     tags: [Books]
+ *     responses:
+ *       200:
+ *         description: The list of the books
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Book'
+ */
+
+
 router.get('/', (req, res) => {
     const books = req.app.db.get("books");
 
